@@ -14,3 +14,12 @@ stages:
     - data/raw
     outs:
     - data/interim
+
+  data-transformation:
+    cmd: python src/features/feature_engineering.py
+    deps:
+    - src/data/data_preprocessing.py
+    - src/features/feature_engineering.py
+    - data/interim
+    outs:
+    - data/processed
